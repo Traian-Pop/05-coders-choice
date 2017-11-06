@@ -7,6 +7,3 @@ I plan on creating a mini-casino simulator that includes some of the more popula
 
 My project will first of all have a human interface for the player to interact with the "casino". Then, there will be two modules: one in charge of the deck/numbers and the other for calculating all the percentages involved in the player's decision. Lastly, there will be a supervised server in charge of all the decisions involved in this process. 
 
-
-> replace all the ">" lines with your content, then push this to
-> github and issue a merge request.
