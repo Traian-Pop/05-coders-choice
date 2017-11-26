@@ -1,4 +1,4 @@
-defmodule Blackjack.Deck do
+defmodule Deck.Impl do
 
   @suits ~w(spades clubs hearts diamonds)
   @nums ~w(A 2 3 4 5 6 7 8 9 10 J Q K)
@@ -7,13 +7,11 @@ defmodule Blackjack.Deck do
     for suit <- suits, num <- nums, do: { suit, num } 
   end 
 
-  def shuffle(deck) do
+  def shuffle(deck \\ deck()) do
+    :rand.seed(:exsplus, :os.timestamp)
     Enum.shuffle(deck)
-  end
-
-  def restart() do
-    shuffle(deck())
   end
 
   def deal(deck, num), do: Enum.split(deck, num) 
 end
+

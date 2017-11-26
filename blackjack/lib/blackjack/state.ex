@@ -2,7 +2,7 @@ defmodule Blackjack.State do
   
   defstruct(
     game_state: :init,
-    deck_state: Blackjack.Deck.restart(),
+    deck_state: %{},
     dealer_hand: [],
     dealer_value: 0,
     player_hand: [],
