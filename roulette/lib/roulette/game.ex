@@ -17,6 +17,7 @@ defmodule Roulette.Game do
   }
   end
 
+  # Spin method
   def spin(bet, game) do
     game = %{ game | player_val: bet }
     Table.spin()

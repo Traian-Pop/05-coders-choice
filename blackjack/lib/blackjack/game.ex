@@ -43,6 +43,7 @@ defmodule Blackjack.Game do
     |> Map.put(:player_hand, card ++ game.player_hand)
     |> Map.put(:deck_state, new_deck)
     |> count_hands
+    |> bust_check(game.player_value)
     |> return_check  
   end
 
@@ -100,8 +101,17 @@ defmodule Blackjack.Game do
     |> Map.put(:player_value, player_val)
     |> Map.put(:dealer_value, dealer_val)
   end
-  
-  #Return function
+
+  # Checks for bust 
+  defp bust_check(game, player_val) when (player_val > 21) do
+    %{ game | game_state: :player_bust }
+  end
+
+  defp bust_check(game, _) do
+    game
+  end
+
+  # Return function
   defp count_cards([], total, _ace=0) do
     total
   end

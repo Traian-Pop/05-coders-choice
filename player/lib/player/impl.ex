@@ -3,7 +3,7 @@ defmodule Player.Impl do
   # First time playing
   def play() do
     clear_screen()
-    IO.puts "-------------------------------------------------------------------------------------\n"
+    IO.puts "--------------------------------------------------------------------------\n"
     IO.puts "Howdy! Welcome to The Wondorous Palace of Elixers, fanciest casino in the wild west. We currently carry Blackjack and Roulette.\n"
     game_name = IO.gets("What kind of game would you like to play? (Or type Quit to leave)\n") |> String.downcase |> String.trim
     play(game_name)
@@ -12,7 +12,7 @@ defmodule Player.Impl do
   # Second time playing
   def play(1) do
     clear_screen()
-    IO.puts "-------------------------------------------------------------------------------------\n"
+    IO.puts "--------------------------------------------------------------------------\n"
     IO.puts "Welcome back to the main floor!\n"
     game_name = IO.gets("What kind of game would you like to play? (Blackjack or Roulette or Type Quit to leave)\n") |> String.downcase |> String.trim
     play(game_name)
@@ -20,7 +20,7 @@ defmodule Player.Impl do
 
   # Quit function
   def play("quit") do
-    IO.puts "------------------------------------------------------------------------------------\n"
+    IO.puts "-------------------------------------------------------------------------\n"
     IO.puts "See ya'll next time!\n"
   end
 
@@ -59,8 +59,8 @@ defmodule Player.Impl do
   # Method that actually starts game
   defp start_blackjack("yes") do
     clear_screen()
-    Blackjack.new_game
-    |> Blackjack.hit
+    Blackjack.Game.new_game
+    |> Blackjack.Game.hit
     |> get_blackjack_decision
   end
 
@@ -162,9 +162,11 @@ defmodule Player.Impl do
   defp print_cards(:player, hand) do
     IO.inspect hand
   end
-  
+
+  ##########################################
   ################ Roulette ################
-  
+  ##########################################
+
   # Method that actually starts game
   defp start_roulette("yes") do
     clear_screen()
@@ -186,7 +188,7 @@ defmodule Player.Impl do
 
   # General method for normal game function for player
   defp get_roulette_decision({ game, _state = %{ game_state: :init}}) do
-    IO.gets("\nWhat bet would you like to make? (Red, Black, Odd, Even, Number) \n") 
+    IO.gets("\nWhat bet would you like to make? (Red, Black, Odd, Even, or a number 0-36) \n") 
     |> String.downcase 
     |> String.trim
     |> Roulette.spin(game)
@@ -196,31 +198,31 @@ defmodule Player.Impl do
   
   # Player wins Red
   defp get_roulette_decision({ _game, _state = %{ game_state: true, player_val: "red" } }) do
-    IO.puts("\n...the player wins red money!\n")
+    IO.puts("\n...the player guesses red numbres correctly!\n")
     play("roulette", 1)
   end
   
   # Player wins Black
   defp get_roulette_decision({ _game, _state = %{ game_state: true, player_val: "black" } }) do
-    IO.puts("\n...the player wins black money!\n")
+    IO.puts("\n...the player guesses black numbers correctly!\n")
     play("roulette", 1)
   end
 
   # Player wins Odd
   defp get_roulette_decision({ _game, _state = %{ game_state: true, player_val: "odd" } }) do
-    IO.puts("\n...the player wins odd money!\n")
+    IO.puts("\n...the player guesses odd numbers correctly!\n")
     play("roulette", 1)
   end
   
   # Player wins Even
   defp get_roulette_decision({ _game, _state = %{ game_state: true, player_val: "even" } }) do
-    IO.puts("\n...the player wins even money!\n")
+    IO.puts("\n...the player guesses even numbers correctly!\n")
     play("roulette", 1)
   end
 
   # Player wins Number
   defp get_roulette_decision({ _game, _state = %{ game_state: true } }) do
-    IO.puts("\n...the player wins number more!\n")
+    IO.puts("\n...the player guessed the exact number correctly!!!!!\n")
     play("roulette", 1)
   end
 
