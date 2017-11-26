@@ -1,0 +1,4 @@
+Name: Traian Pop
+ID: 43560768
+
+Currently, my casino application can play both Blackjack and Roulette fairly well, and I have not noticed any major bugs. The majority of the last few days were spent working on tests and trying to optimize/clean-up the code as much as possible. I still believe I'll be working on it for the remainder of the day but it will mostly be smaller changes I believe. I had lots of fun working with a more complicated version of Project 4 and I wish I could have done everything that I planned on doing from the beginning, but making sure every use case was accounted for in both games took a lot longer than previously thought. Had I had more time, I would have made the experience more personal for the player when they log in and add more functionality such as a Casino Bank and/or more games.
