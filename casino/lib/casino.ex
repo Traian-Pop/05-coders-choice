@@ -8,5 +8,5 @@ defmodule Casino do
     def new_game(type) do
       GenServer.call(@name, { :new_game, type })
     end
-
+    
 end

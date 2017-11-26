@@ -14,13 +14,12 @@ defmodule Player.Mixfile do
   def application do
     [
       extra_applications: [:logger]
-      #,mod: {Player.Application, []}
     ]
   end
 
   defp deps do
     [
-      { :casino, path: "../casino" },
+      { :blackjack, path: "../blackjack" },
     ]
   end
 end
