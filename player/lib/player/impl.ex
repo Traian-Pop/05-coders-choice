@@ -22,7 +22,7 @@ defmodule Player.Impl do
   def play("blackjack") do
     IO.puts("Here's the Blackjack table. Enjoy!\n")
     #IO.puts("\n")
-    Blackjack.new_game()
+    Blackjack.new_game
     |> Blackjack.hit()
     |> get_blackjack_decision()
   end
@@ -31,7 +31,7 @@ defmodule Player.Impl do
   def play("blackjack", _1) do
     IO.puts("Ready for another round?\n")
     IO.puts("------------------------\n")
-    Blackjack.new_game()
+    Blackjack.new_game
     |> Blackjack.hit()
     |> get_blackjack_decision()
   end

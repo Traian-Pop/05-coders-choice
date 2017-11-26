@@ -18,4 +18,8 @@ defmodule Blackjack do
     GenServer.call(@name, { :hit, game })
   end
 
+  def stand(game) do
+    GenServer.call(@name, { :stand, game })
+  end
+
 end

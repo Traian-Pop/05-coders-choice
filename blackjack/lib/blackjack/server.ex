@@ -18,4 +18,7 @@ defmodule Blackjack.Server do
     { :reply, Blackjack.Game.hit(game), state }
   end
 
+  def handle_call({ :stand, game }, _from, state ) do
+    { :reply, Blackjack.Game.stand(game), state }
+  end
 end

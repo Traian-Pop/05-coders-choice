@@ -1,10 +1,12 @@
 defmodule Blackjack.Game do
 
+  # New game method
   def new_game() do
     %Blackjack.State{}
-      |> Map.put(:deck, Deck.shuffle())
+      |> Map.put(:deck_state, Deck.shuffle())
   end
-  
+
+  # State  
   def check(game) do
   %{
     game_state: game.game_state,
@@ -61,7 +63,7 @@ defmodule Blackjack.Game do
   # Dealer helper function
   defp dealer(game, dealer_val, player_val) do
     case dealer_val do
-      dealer_val when  player_val > 21 ->
+      _ when player_val > 21 ->
         dealer_stand(game)
       dealer_val when dealer_val < player_val and dealer_val <= 21 ->
         dealer_hit(game)
@@ -100,7 +102,7 @@ defmodule Blackjack.Game do
   end
   
   #Return function
-  defp count_cards([], total, ace=0) do
+  defp count_cards([], total, _ace=0) do
     total
   end
 
