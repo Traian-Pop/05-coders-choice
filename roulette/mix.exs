@@ -1,9 +1,9 @@
-defmodule Blackjack.Mixfile do
+defmodule Roulette.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :blackjack,
+      app: :roulette,
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
@@ -14,17 +14,15 @@ defmodule Blackjack.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [
-        :logger
-      ],
-      mod: {Blackjack.Application, []}
+      extra_applications: [:logger],
+      mod: {Roulette.Application, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      { :deck, path: "../deck" }
+      { :table, path: "../table" }
     ]
   end
 end

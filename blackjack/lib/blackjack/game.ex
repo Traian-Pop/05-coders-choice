@@ -27,8 +27,8 @@ defmodule Blackjack.Game do
     |> Map.put(:player_hand, [card1, card3])
     |> Map.put(:dealer_hand, [card2, card4])
     |> Map.put(:deck_state, new_deck)
-    |> count_hands()
-    |> return_check()
+    |> count_hands
+    |> return_check
   end
 
   # Dealer hit
@@ -42,15 +42,15 @@ defmodule Blackjack.Game do
     game
     |> Map.put(:player_hand, card ++ game.player_hand)
     |> Map.put(:deck_state, new_deck)
-    |> count_hands()
-    |> return_check()  
+    |> count_hands
+    |> return_check  
   end
 
   #Player stand
   def stand(game = %{ turn: :player }) do
     game
     |> Map.put(:turn, :dealer)
-    |> return_check()
+    |> return_check
   end
 
   ######## Private Methods ########
@@ -148,4 +148,5 @@ defmodule Blackjack.Game do
         %{ game | game_state: :house_won }
     end
   end
+
 end

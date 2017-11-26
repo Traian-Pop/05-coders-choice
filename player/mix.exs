@@ -20,6 +20,7 @@ defmodule Player.Mixfile do
   defp deps do
     [
       { :blackjack, path: "../blackjack" },
+      { :roulette, path: "../roulette" }
     ]
   end
 end
